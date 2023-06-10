@@ -1,97 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+
 .attribution {
-    font-size: 11px;
-    text-align: center;
+  font-size: 11px;
+  text-align: center;
 }
 
 .attribution a {
-    color: hsl(228, 45%, 44%);
+  color: hsl(228, 45%, 44%);
 }
 
 .carddiv {
-    background-color: hsl(278, 94%, 30%);
-    height: 100vh;
-    background: #FFEEEE;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom,hsl(278, 68%, 11%), hsl(278, 94%, 30%));  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to bottom,hsl(278, 68%, 11%), hsl(278, 94%, 30%)); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+  background: linear-gradient(to bottom, hsl(278, 68%, 11%), hsl(278, 94%, 30%));
+  height: 100vh;
 }
 
 form {
-    display: flex;
-    height: 100vh;
-    justify-content: center;
-    align-items: center;
-    text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: left;
 }
 
 #confirm-btn {
-    color: white;
-    background-color: hsl(278, 68%, 11%);
-    border-radius: 10px;
-    width: 100%;
-    height: 50px;
-}
-
-.formbox {
-    width: 400px;
-    font-family: 'Space Grotesk', sans-serif;
-
+  background-color: hsl(278, 68%, 11%);
+  border-radius: 10px;
+  color: #ffffff;
+  height: 50px;
+  width: 100%;
 }
 
 .frontCard {
-    position: relative;
-    color: white;
-    margin-top: 40%;
-    margin-left: 25%;
+  color: #ffffff;
+  margin-left: 25%;
+  margin-top: 40%;
+  position: relative;
 }
 
 .backCard {
-    margin-left: 40%;
-    margin-top: 10%;
-}
-
-.cardInfo {
-    position: absolute;
-    bottom: 8px;
-    left: 100px;
-    font-size: 1.5rem;
-    font-family: 'Space Grotesk', sans-serif;
-
+  margin-left: 40%;
+  margin-top: 10%;
 }
 
 .card-logo {
-    position: absolute;
-    bottom: 185px;
-    left: 50px;
+  bottom: 185px;
+  left: 50px;
+  position: absolute;
 }
 
-@media screen and (max-width:600px) {
-    .front-img {
-        height: 180px
-    }
+.cardInfo {
+  bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  left: 100px;
+  position: absolute;
+}
 
-    .back-img {
-        height: 180px;
-    }
+.formbox {
+  font-family: 'Space Grotesk', sans-serif;
+  width: 400px;
+}
 
-    .frontCard {
+@media screen and (max-width: 600px) {
+  .backCard {
+    margin-left: 0%;
+    margin-top: 10%;
+  }
 
-        margin-top: 0%;
-        margin-left: 0%;
-    }
+  .back-img, .front-img {
+    height: 180px;
+  }
 
-    .backCard {
-        margin-left: 0%;
-        margin-top: 10%;
-    }
+  .carddiv {
+    height: 400px;
+  }
 
-    .carddiv {
-        height: 400px
-    }
+  .frontCard {
+    margin-left: 0%;
+    margin-top: 0%;
+  }
 
-    form {
-        height: 50vh;
-    }
-
+  form {
+    height: 50vh;
+  }
 }
