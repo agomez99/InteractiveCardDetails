@@ -8,6 +8,9 @@ const numberError = document.getElementById('number-error');
 const monthError = document.getElementById('month-error');
 const yearError = document.getElementById('year-error');
 const cvvError = document.getElementById('cvv-error');
+const success = document.getElementById('success');
+const successImage = document.createElement('img');
+successImage.src = './images/icon-complete.svg';
 
 function validateCardNumber() {
   if (cardNumber.value.length < 16 ) {
@@ -115,13 +118,6 @@ function validateForm() {
   validateExpiryYear();
   validateCvv();
 
-
-
-
-
-
-
-  
   if (cardNumber.checkValidity() && cardHolder.checkValidity() && expiryMonth.checkValidity() && expiryYear.checkValidity() && cvv.checkValidity()) {
     return true;
   } else {
@@ -132,13 +128,16 @@ function validateForm() {
 function submitForm() {
   if (validateForm()) {
     alert('Form submitted');
+    success.style.display = 'block';
+    success.style.color = 'green';
+    success.style.fontSize = '20px'
+    success.textContent = 'THANK YOU!\nWeve added your card details'
+
   } else {
     console.error('Form could not be submitted due to validation errors.');
   }
 }
 
-function resetForm() {
-  document.getElementById('myform').reset();
-}
+
 
 document.getElementById('confirm-btn').addEventListener('click', submitForm);

@@ -12,6 +12,8 @@
 .carddiv {
   background: linear-gradient(to bottom, hsl(278, 68%, 11%), hsl(278, 94%, 30%));
   height: 100vh;
+  display: flex;
+  flex-direction:column;
 }
 
 form {
@@ -62,25 +64,55 @@ form {
 }
 
 @media screen and (max-width: 600px) {
-  .backCard {
-    margin-left: 0%;
-    margin-top: 10%;
-  }
 
-  .back-img, .front-img {
-    height: 180px;
+
+  .back-img {
+    height: 150px;
+    margin-left:20%;
+  }
+  .front-img {
+    height: 150px;
   }
 
   .carddiv {
-    height: 400px;
+    height: 255px;
+    flex-direction:column-reverse;
   }
 
   .frontCard {
-    margin-left: 0%;
+    margin-left:5%;
     margin-top: 0%;
+    bottom:-30px;
+    height:300px;
+  }
+  .backCard{
+    margin-left: 0%;
+    margin-top: 10%;
+    height:200px;
+   padding-top:40%;
+  }
+  .card-logo {
+    bottom: 105px;
+    left: 30px;
+    position: absolute;
+  }
+  .logo-img{
+    height:30px
   }
 
+  
+  .cardInfo {
+    bottom: -30px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    left: 20px;
+    position: absolute;
+  }
   form {
     height: 50vh;
+    margin-top:10%;
+  }
+  .form-label{
+    font-size: 0.8rem;
   }
 }
