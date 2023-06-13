@@ -13,94 +13,103 @@ const successImage = document.createElement('img');
 successImage.src = './images/icon-complete.svg';
 
 function validateCardNumber() {
-  if (cardNumber.value.length < 16 ) {
-    numberError.textContent = 'Card number must be 16 digits'
-    numberError.style.display = 'block';
-    numberError.style.color = 'red';
-    numberError.style.fontSize = '13px'
-
+  const errorMessage = 'Card number must be 16 digits';
+  const numbersMessage = 'Wrong format, numbers only';
+  const cardNumberValue = cardNumber.value;
+  const errorStyles = {
+    display: 'flex',
+    color: 'red',
+    fontSize: '13px',
+    marginTop: '5px'
+  }
+  if (cardNumberValue.length !== 16 || isNaN(cardNumberValue)) {
+    numberError.textContent = isNaN(cardNumberValue) ? numbersMessage : errorMessage;
+    Object.assign(numberError.style, errorStyles);
   } else {
+    numberError.textContent = '';
     cardNumber.setCustomValidity('');
   }
 }
 
+
 function validateCardHolder() {
-  if (cardHolder.value.length < 3) {
-    nameError.textContent = 'Card holder must be at least 3 characters'
+  const errorMessage = 'Card holder must be at least 3 characters';
+  const cardHolderValue = cardHolder.value;
+  if (cardHolderValue.length < 3 ) {
+    nameError.textContent = errorMessage;
     nameError.style.display = 'block';
     nameError.style.color = 'red';
-    nameError.style.fontSize = '13px'
+    nameError.style.fontSize = '13px';
   } else {
+    nameError.textContent = '';
     cardHolder.setCustomValidity('');
   }
+
 
 }
 
 function validateExpiryMonth() {
-  if (expiryMonth.value.length < 2 && expiryMonth.value.length > 0) {
-    expiryMonth.setCustomValidity('Expiry month must be 2 digits');
-    monthError.textContent = 'Expiry month must be 2 digits'
-    monthError.style.display = 'block';
-    monthError.style.color = 'red';
-    monthError.style.fontSize = '12px'
+  const errorMessage = 'Expiry must be 2 digits';
+  const numbersMonthMessage = 'Wrong format, numbers only';
+  const expiryMonthValue = expiryMonth.value;
+  const errorStyles = {
+    display: 'flex',
+    color: 'red',
+    fontSize: '13px',
+    marginTop: '5px'
 
-  } 
-  else if (expiryMonth.value.length === 0) { // use strict comparison operator
-    expiryMonth.setCustomValidity('Expiry cannot be blank');
-    monthError.textContent = 'Cant be blank'
-    monthError.style.display = 'block';
-    monthError.style.color = 'red';
-    monthError.style.fontSize = '12px'
+  }
+  if (expiryMonthValue.length < 2|| expiryMonthValue.length > 2 || isNaN(expiryMonthValue)) {
+    monthError.textContent = isNaN(expiryMonthValue) ? numbersMonthMessage : errorMessage;
+    Object.assign(monthError.style, errorStyles);
   }
   else {
+    monthError.textContent = '';
     expiryMonth.setCustomValidity('');
   }
 }
 
 function validateExpiryYear() {
-    // Check if the length of the value is less than 2 (or 1) and set error message
-    if (expiryYear.value.length < 2 && expiryYear.value.length > 0) {
-      expiryYear.setCustomValidity('Expiry year must be 2 digits');
-      yearError.textContent = 'Expiry year must be 2 digits'
-      yearError.style.display = 'block';
-      yearError.style.color = 'red';
-      yearError.style.fontSize = '12px'
-
-    }
-    // Check if the value is empty and set error message
-    else if (expiryYear.value.length === 0) { // use strict comparison operator
-      expiryYear.setCustomValidity('Expiry cannot be blank');
-      yearError.textContent = 'Cant be blank'
-      yearError.style.display = 'block';
-      yearError.style.color = 'red';
-      yearError.style.fontSize = '12px'
-    }
-    // If none of the conditions above are met, clear the error message
-    else {
-      expiryYear.setCustomValidity('');
-    }
-  }
+  const errorMessage = 'Expiry must be 2 digits';
+  const numbersYearMessage = 'Wrong format, numbers only';
+  const expiryYearValue = expiryYear.value;
+  const errorStyles = {
+    display: 'flex',
+    color: 'red',
+    fontSize: '13px',    
+    marginTop: '5px'
   
+    }
+
+  if (expiryYearValue.length < 2 || expiryYearValue.length > 2 || isNaN(expiryYearValue)) {
+    yearError.textContent = isNaN(expiryYearValue) ? numbersYearMessage : errorMessage;
+    Object.assign(yearError.style, errorStyles);
+  } 
+  else {
+    yearError.textContent = '';
+    expiryYear.setCustomValidity('');
+  }
+}
+
 
 function validateCvv() {
-if (cvv.value.length < 3 && cvv.value.length > 0) {
-    cvv.setCustomValidity('CVV must be 3 digits');
-    cvvError.textContent = 'CVV must be 3 digits'
-    cvvError.style.display = 'block';
-    cvvError.style.color = 'red';
-    cvvError.style.fontSize = '12px'
+  const errorMessage = 'CVV must be 3 digits';
+  const numbersCvvMessage = 'Wrong format, numbers only';
+  const cvvValue = cvv.value;
+  const errorStyles = {
+    display: 'flex',
+    color: 'red',
+    fontSize: '13px',
+    marginTop: '5px'
 
-  }  
+    }
 
-  else if (cvv.value.length === 0) { // use strict comparison operator
-   cvv.setCustomValidity('Expiry cannot be blank');
-   cvvError.textContent = 'Cant be blank'
-   cvvError.style.display = 'block';
-   cvvError.style.color = 'red';
-   cvvError.style.fontSize = '12px'
-
+  if (cvvValue.length < 3 || cvvValue.length > 3 || isNaN(cvvValue)) {
+    cvvError.textContent = isNaN(cvvValue) ? numbersCvvMessage : errorMessage;
+    Object.assign(cvvError.style, errorStyles);
   }
   else {
+    cvvError.textContent = '';
     cvv.setCustomValidity('');
   }
 }
@@ -124,20 +133,57 @@ function validateForm() {
     return false;
   }
 }
-
-function submitForm() {
-  if (validateForm()) {
-    alert('Form submitted');
-    success.style.display = 'block';
-    success.style.color = 'green';
-    success.style.fontSize = '20px'
-    success.textContent = 'THANK YOU!\nWeve added your card details'
-
+const submitForm = (event) => {
+  event.preventDefault();
+  const validated = validateForm() === true && 
+                    cardNumber.value.length === 16 && 
+                    cardHolder.value.length >= 3 && 
+                    expiryMonth.value.length === 2 && 
+                    expiryYear.value.length === 2 && 
+                    cvv.value.length === 3;
+  if (validated) {
+    handleSuccess();
+    console.log('Form submitted successfully.');
+    return true;
   } else {
-    console.error('Form could not be submitted due to validation errors.');
+    handleError();
+    return false;
   }
-}
+};
 
+const handleSuccess = () => {
+  success.classList.add('success-message');
+  success.style.display = 'flex';
+  success.style.flexDirection = 'column';
+  success.style.alignItems = 'center';
+  success.style.justifyContent = 'center';
 
+  const html = `
+    <div class="success-message">
+      <img src="/images/icon-complete.svg" alt="Success icon">
+      <h1 class="success-message-title">THANK YOU!<h1>
+      <p class="success-message-text">We've added your card details</p>
+      <button class="reset-button">Continue</button>
+    </div>
+  `;
+  success.innerHTML = html;
+  const resetButton = success.querySelector('.reset-button');
+  resetButton.addEventListener('click', resetForm);
+};
+ 
+const resetForm = () => {
+  cardNumber.value = '';
+  cardHolder.value = '';
+  expiryMonth.value = '';
+  expiryYear.value = '';
+  cvv.value = '';
+  success.textContent = '';
+  success.style.display = 'none';
+  location.reload();
+};
+
+const handleError = () => {
+  console.error('Form could not be submitted due to validation errors.');
+};
 
 document.getElementById('confirm-btn').addEventListener('click', submitForm);
