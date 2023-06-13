@@ -3,6 +3,10 @@ const cardNumberInput = document.querySelector('#cardnumber');
 const expDateInput = document.querySelector('#expdate');
 const expDateYInput = document.querySelector('#expdateYY');
 const cvcInput = document.querySelector('#cvc');
+const printName = document.querySelector('.print-name');
+const printNumber = document.querySelector('.print-number');
+const printDate = document.querySelector('.print-date');
+const printCvc = document.querySelector('.print-cvc');
 
 const maxLength = {
   cardNumber: 20,
@@ -21,10 +25,6 @@ class InfoCard {
   }
 
   printInfoCard() {
-    const printName = document.querySelector('.print-name');
-    const printNumber = document.querySelector('.print-number');
-    const printDate = document.querySelector('.print-date');
-    const printCvc = document.querySelector('.print-cvc');
     let dateText = '';
     if (this.dateM || this.dateY) {
       dateText = `${this.dateM}/${this.dateY}`;
@@ -89,6 +89,11 @@ new Cleave(cardNumberInput, {
       expDateYInput.value = '';
       cvcInput.value = '';
       invalidCardNumberFeedback.textContent = '';
+      printName.innerHTML = '';
+      printNumber.innerHTML = '';
+      printDate.innerHTML = ''; 
+      printCvc.innerHTML = '';
+      
     };
   
     const submitForm = (event) => {
