@@ -64,9 +64,9 @@ body{
 
 
 #form-container{
-    background-color: #fff;
     box-shadow: 5px 10px 15px #0002;
-    min-height: 100vh;
+    height: 100vh;
+
 }
 
 
