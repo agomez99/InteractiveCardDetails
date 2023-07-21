@@ -7,7 +7,7 @@ body{
     font-size: 1.2rem !important;
     
 }
-/* cards image */
+
 
 #bg-main{
     background-image: url('images/bg-main-mobile.png');
@@ -60,7 +60,6 @@ body{
     text-transform: uppercase;
 }
 
-/* form */
 
 
 #form-container{
